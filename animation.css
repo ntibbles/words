@@ -1,0 +1,112 @@
+.noanimations .flip,
+.noanimations .pop,
+.noanimations .show,
+.noanimations .shake {
+  animation: none !important;
+}
+
+.noanimations .rotate {
+  transform: none !important;
+}
+
+.flip {
+  animation: 1s 1 normal flipDiv;
+  animation-fill-mode: forwards;
+}
+
+.pop {
+  animation: 0.2s 1 normal pop;
+}
+
+.show {
+  animation: 1s 1 normal slideIn;
+  animation-fill-mode: forwards;
+}
+
+.hide {
+  animation: 1s 1 normal slideOut;
+  animation-fill-mode: forwards;
+}
+
+.shake {
+  animation: 0.2s 2 alternate shake;
+}
+
+.rotate {
+  transform: rotateY(180deg);
+}
+
+.darkgrey {
+  background-color: darkgray !important;
+}
+
+.green {
+  background-color: green !important;
+}
+
+.yellow {
+  background-color: yellow !important;
+}
+
+@keyframes flipDiv {
+  from {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes slideIn { 
+  from {
+    opacity: 0;
+    top: 10%;
+  }
+  
+  to {
+    opacity: 1;
+    top: 20%;
+  }
+}
+
+@keyframes slideOut { 
+  from {
+    display:block;
+    opacity: 1;
+    top: 20%;
+  }
+  
+  to {
+    opacity: 0;
+    top: 10%;
+    display:none;
+  }
+}
+
+@keyframes shake {
+  from {
+    margin-left: 0;
+  }
+
+  50% {
+    margin-left: 20px;
+  }
+
+  to {
+    margin-left: -20px;
+  }
+}
+
+@keyframes pop {
+  from {
+    transform: scale(1.2);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
