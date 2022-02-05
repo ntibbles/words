@@ -77,10 +77,7 @@ class Game {
 
   // Getters
   getRandomWord(list) {
-    //return 'stone'.split('');
-    //return 'those'.split('');
-    return 'suite'.split('');
-    // return list[Math.floor(Math.random()*list.length)].split('');
+    return list[Math.floor(Math.random()*list.length)].split('');
   }
 
   getHint() {
@@ -120,43 +117,8 @@ class Game {
     let markedLetter = '';
     for(let i = 0; i < this.word.length; i++) {
       let index = this.word.indexOf(this.guess[i]);
-      let isDoubleLetter = (this.guess.indexOf(this.guess[i]) !== this.guess.lastIndexOf(this.guess[i]));
       let bgColor = (this.word[i] === this.guess[i]) ? colors.correct : ((index > -1) ? colors.misplaced : colors.incorrect);
   
-      if(bgColor === colors.misplaced) {
-       // if this is a double letter and in the first position, check if the second letter is correct
-          
-        
-          for (let j = 0; j < i; j++ ) {
-            console.log('i: ', i, ' j: ', j);
-            //console.log('letter is in this position: ', this.guess[j] === this.word[index], ' index: ', index, ' letter: ', this.guess[j], ' word letter: ', this.word[index]);
-            if(this.guess[i] === this.word[index] && isDoubleLetter) {
-              markedLetter = this.guess[i];
-            }
-            console.log('letter: ', this.guess[i], ' isDoubleLetter: ', isDoubleLetter, ' ahead: ', this.guess[j] === this.word[index], ' or: ', this.guess[i] === this.guess[j], ' markedLetter: ', markedLetter);
-            if(this.guess[i] === markedLetter && isDoubleLetter) {
-              console.log('incorrect');
-              
-              bgColor = colors.incorrect;
-            }
-        
-
-            // if(this.guess[i] === this.word[index]) {
-            //   this.wordEl.querySelector(`#${this.letterId}0`).style.backgroundColor = colors.incorrect;
-            //   bgColor = colors.incorrect;
-            // }
-          
-          }
-         console.log(' ahead: ', this.guess[i], 'doubleLetter: ', isDoubleLetter, ' ', this.word[index], ' i: ', i, ' index: ', index);
-          if(i === 0 && isDoubleLetter) {
-            if(this.guess[i] !== this.word[index] && i !== index) {
-              bgColor = colors.incorrect;
-            } else {
-              bgColor = colors.misplaced;
-            }
-          }
-      }
-      console.log('bgColor: ', bgColor);
       setTimeout(() => {
         this.scoring.highlightLetter(i, bgColor);
       }, i * 500);
