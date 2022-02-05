@@ -5,10 +5,11 @@ export const colors = {
 };
 
 export const messages = [
+  '',
   'Lucky!',
   'Amazing!',
   'Great Job!',
-  'Good For You!',
-  'Just Got It!',
+  'Incredible!',
+  'Oh Yeah!',
   'Phew!'
 ]

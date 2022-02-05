@@ -37,7 +37,7 @@ class Game {
     
     this.loadDictionary();
     this.loadWord();
-    this.timer.start();
+    //this.timer.start();
   }
 
   loadDictionary() {
@@ -117,7 +117,6 @@ class Game {
   }
 
   checkWord() {
-    let markedLetter = '';
     for(let i = 0; i < this.word.length; i++) {
       let index = this.word.indexOf(this.guess[i]);
       let bgColor = (this.word[i] === this.guess[i]) ? colors.correct : ((index > -1) ? colors.misplaced : colors.incorrect);
