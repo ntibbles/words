@@ -41,6 +41,7 @@ export class Scoring {
   }
 
   gameOver() {
+    console.log('game over');
     this.game.disableInput();
     this.isGameOver = true;
   }

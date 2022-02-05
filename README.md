@@ -1,4 +1,4 @@
-# Words, a Wordle clone
+# Drudle, a drinking word game
 
 **Overview**  
 This is my version of Wordle. Wordle doesn't user double letters as the answer, and the same approach is used here. 
@@ -9,6 +9,3 @@ There are 2 data files (dictionary.json and words.json). The dictionary is an ex
 **Requirements**  
 Node.js  
 http-server  
-
-**Known Issues**  
-If the user inputs a double letter word and the second letter is in the correct position the first letter will be yellow and the second green. (for example: guess = taste, solution = suite)

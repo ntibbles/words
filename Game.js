@@ -11,6 +11,7 @@ import { Board } from './modules/Board.mjs';
 import { Scoring } from './modules/Scoring.mjs';
 import { Keyboard } from './modules/Keyboard.mjs';
 import { PopUp } from './modules/PopUp.mjs';
+import { Timer } from './modules/Timer.mjs';
 import { loader, validateWord } from './modules/utils.mjs';
 import { colors } from './modules/constants.mjs';
 
@@ -31,10 +32,12 @@ class Game {
     this.guessTxt = document.getElementById('guessTxt');
     this.atTxt = document.getElementById('liveTxt');
     this.curWord = {};
-    this.popUp = new PopUp(this.rootDiv);
+    this.popUp = new PopUp(document.body);
+    this.timer = new Timer(document.body, this);
     
     this.loadDictionary();
     this.loadWord();
+    this.timer.start();
   }
 
   loadDictionary() {
