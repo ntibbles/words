@@ -38,7 +38,7 @@ class Game {
   }
 
   loadDictionary() {
-    loader('./dictionary.json')
+    loader('./data/dictionary.json')
     .then(data => {
       this.dict = data;
       this.generateBoard();
@@ -50,7 +50,7 @@ class Game {
   }
 
   loadWord() {
-    loader('./words.json')
+    loader('./data/words.json')
     .then(data => {
       this.word = this.getRandomWord(data);
       window.getHint = () => console.log(this.getHint());
